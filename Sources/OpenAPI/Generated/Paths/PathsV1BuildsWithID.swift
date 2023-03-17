@@ -153,12 +153,15 @@ extension APIEndpoint.V1.Builds {
 
 			public enum FieldsAppEncryptionDeclarations: String, Codable, CaseIterable {
 				case app
+				case appDescription
+				case appEncryptionDeclarationDocument
 				case appEncryptionDeclarationState
 				case availableOnFrenchStore
 				case builds
 				case codeValue
 				case containsProprietaryCryptography
 				case containsThirdPartyCryptography
+				case createdDate
 				case documentName
 				case documentType
 				case documentURL = "documentUrl"
@@ -169,10 +172,13 @@ extension APIEndpoint.V1.Builds {
 			}
 
 			public enum FieldsApps: String, Codable, CaseIterable {
+				case appAvailability
 				case appClips
 				case appCustomProductPages
 				case appEvents
 				case appInfos
+				case appPricePoints
+				case appPriceSchedule
 				case appStoreVersions
 				case availableInNewTerritories
 				case availableTerritories

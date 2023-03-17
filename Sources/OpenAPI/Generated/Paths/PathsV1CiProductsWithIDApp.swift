@@ -103,6 +103,7 @@ extension APIEndpoint.V1.CiProducts.WithID {
 				case appStoreAgeRating
 				case appStoreState
 				case brazilAgeRating
+				case brazilAgeRatingV2
 				case kidsAgeBand
 				case primaryCategory
 				case primarySubcategoryOne
@@ -194,8 +195,10 @@ extension APIEndpoint.V1.CiProducts.WithID {
 			}
 
 			public enum FieldsSubscriptionGracePeriods: String, Codable, CaseIterable {
-				case app
+				case duration
 				case optIn
+				case renewalType
+				case sandboxOptIn
 			}
 
 			public enum FieldsPromotedPurchases: String, Codable, CaseIterable {
@@ -247,10 +250,13 @@ extension APIEndpoint.V1.CiProducts.WithID {
 			}
 
 			public enum FieldsApps: String, Codable, CaseIterable {
+				case appAvailability
 				case appClips
 				case appCustomProductPages
 				case appEvents
 				case appInfos
+				case appPricePoints
+				case appPriceSchedule
 				case appStoreVersions
 				case availableInNewTerritories
 				case availableTerritories
