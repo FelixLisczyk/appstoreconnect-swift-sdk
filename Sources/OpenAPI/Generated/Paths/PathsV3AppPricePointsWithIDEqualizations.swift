@@ -39,10 +39,12 @@ extension APIEndpoint.V3.AppPricePoints.WithID {
 				case appAvailability
 				case appClips
 				case appCustomProductPages
+				case appEncryptionDeclarations
 				case appEvents
 				case appInfos
 				case appPricePoints
 				case appPriceSchedule
+				case appStoreVersionExperimentsV2
 				case appStoreVersions
 				case availableInNewTerritories
 				case availableTerritories
@@ -57,6 +59,7 @@ extension APIEndpoint.V3.AppPricePoints.WithID {
 				case contentRightsDeclaration
 				case customerReviews
 				case endUserLicenseAgreement
+				case gameCenterDetail
 				case gameCenterEnabledVersions
 				case inAppPurchases
 				case inAppPurchasesV2

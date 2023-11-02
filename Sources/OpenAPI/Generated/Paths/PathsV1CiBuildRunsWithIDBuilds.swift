@@ -161,6 +161,7 @@ extension APIEndpoint.V1.CiBuildRuns.WithID {
 				case appStoreReviewDetail
 				case appStoreState
 				case appStoreVersionExperiments
+				case appStoreVersionExperimentsV2
 				case appStoreVersionLocalizations
 				case appStoreVersionPhasedRelease
 				case appStoreVersionSubmission
@@ -200,10 +201,12 @@ extension APIEndpoint.V1.CiBuildRuns.WithID {
 				case appAvailability
 				case appClips
 				case appCustomProductPages
+				case appEncryptionDeclarations
 				case appEvents
 				case appInfos
 				case appPricePoints
 				case appPriceSchedule
+				case appStoreVersionExperimentsV2
 				case appStoreVersions
 				case availableInNewTerritories
 				case availableTerritories
@@ -218,6 +221,7 @@ extension APIEndpoint.V1.CiBuildRuns.WithID {
 				case contentRightsDeclaration
 				case customerReviews
 				case endUserLicenseAgreement
+				case gameCenterDetail
 				case gameCenterEnabledVersions
 				case inAppPurchases
 				case inAppPurchasesV2

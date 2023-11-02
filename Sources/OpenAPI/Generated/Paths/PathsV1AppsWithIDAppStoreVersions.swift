@@ -38,6 +38,7 @@ extension APIEndpoint.V1.Apps.WithID {
 			public var limit: Int?
 			public var limitAppStoreVersionLocalizations: Int?
 			public var limitAppStoreVersionExperiments: Int?
+			public var limitAppStoreVersionExperimentsV2: Int?
 			public var include: [Include]?
 
 			public enum FilterAppStoreState: String, Codable, CaseIterable {
@@ -69,10 +70,14 @@ extension APIEndpoint.V1.Apps.WithID {
 			}
 
 			public enum FieldsAppStoreVersionExperiments: String, Codable, CaseIterable {
+				case app
 				case appStoreVersion
 				case appStoreVersionExperimentTreatments
+				case controlVersions
 				case endDate
+				case latestControlVersion
 				case name
+				case platform
 				case reviewRequired
 				case startDate
 				case started
@@ -124,6 +129,7 @@ extension APIEndpoint.V1.Apps.WithID {
 				case appStoreReviewDetail
 				case appStoreState
 				case appStoreVersionExperiments
+				case appStoreVersionExperimentsV2
 				case appStoreVersionLocalizations
 				case appStoreVersionPhasedRelease
 				case appStoreVersionSubmission
@@ -143,10 +149,12 @@ extension APIEndpoint.V1.Apps.WithID {
 				case appAvailability
 				case appClips
 				case appCustomProductPages
+				case appEncryptionDeclarations
 				case appEvents
 				case appInfos
 				case appPricePoints
 				case appPriceSchedule
+				case appStoreVersionExperimentsV2
 				case appStoreVersions
 				case availableInNewTerritories
 				case availableTerritories
@@ -161,6 +169,7 @@ extension APIEndpoint.V1.Apps.WithID {
 				case contentRightsDeclaration
 				case customerReviews
 				case endUserLicenseAgreement
+				case gameCenterDetail
 				case gameCenterEnabledVersions
 				case inAppPurchases
 				case inAppPurchasesV2
@@ -256,6 +265,7 @@ extension APIEndpoint.V1.Apps.WithID {
 				case appClipDefaultExperience
 				case appStoreReviewDetail
 				case appStoreVersionExperiments
+				case appStoreVersionExperimentsV2
 				case appStoreVersionLocalizations
 				case appStoreVersionPhasedRelease
 				case appStoreVersionSubmission
@@ -263,7 +273,7 @@ extension APIEndpoint.V1.Apps.WithID {
 				case routingAppCoverage
 			}
 
-			public init(filterAppStoreState: [FilterAppStoreState]? = nil, filterPlatform: [FilterPlatform]? = nil, filterVersionString: [String]? = nil, filterID: [String]? = nil, fieldsAppStoreVersionExperiments: [FieldsAppStoreVersionExperiments]? = nil, fieldsAgeRatingDeclarations: [FieldsAgeRatingDeclarations]? = nil, fieldsAppStoreVersionSubmissions: [FieldsAppStoreVersionSubmissions]? = nil, fieldsAppStoreReviewDetails: [FieldsAppStoreReviewDetails]? = nil, fieldsAppStoreVersions: [FieldsAppStoreVersions]? = nil, fieldsApps: [FieldsApps]? = nil, fieldsRoutingAppCoverages: [FieldsRoutingAppCoverages]? = nil, fieldsAppClipDefaultExperiences: [FieldsAppClipDefaultExperiences]? = nil, fieldsAppStoreVersionPhasedReleases: [FieldsAppStoreVersionPhasedReleases]? = nil, fieldsBuilds: [FieldsBuilds]? = nil, fieldsAppStoreVersionLocalizations: [FieldsAppStoreVersionLocalizations]? = nil, limit: Int? = nil, limitAppStoreVersionLocalizations: Int? = nil, limitAppStoreVersionExperiments: Int? = nil, include: [Include]? = nil) {
+			public init(filterAppStoreState: [FilterAppStoreState]? = nil, filterPlatform: [FilterPlatform]? = nil, filterVersionString: [String]? = nil, filterID: [String]? = nil, fieldsAppStoreVersionExperiments: [FieldsAppStoreVersionExperiments]? = nil, fieldsAgeRatingDeclarations: [FieldsAgeRatingDeclarations]? = nil, fieldsAppStoreVersionSubmissions: [FieldsAppStoreVersionSubmissions]? = nil, fieldsAppStoreReviewDetails: [FieldsAppStoreReviewDetails]? = nil, fieldsAppStoreVersions: [FieldsAppStoreVersions]? = nil, fieldsApps: [FieldsApps]? = nil, fieldsRoutingAppCoverages: [FieldsRoutingAppCoverages]? = nil, fieldsAppClipDefaultExperiences: [FieldsAppClipDefaultExperiences]? = nil, fieldsAppStoreVersionPhasedReleases: [FieldsAppStoreVersionPhasedReleases]? = nil, fieldsBuilds: [FieldsBuilds]? = nil, fieldsAppStoreVersionLocalizations: [FieldsAppStoreVersionLocalizations]? = nil, limit: Int? = nil, limitAppStoreVersionLocalizations: Int? = nil, limitAppStoreVersionExperiments: Int? = nil, limitAppStoreVersionExperimentsV2: Int? = nil, include: [Include]? = nil) {
 				self.filterAppStoreState = filterAppStoreState
 				self.filterPlatform = filterPlatform
 				self.filterVersionString = filterVersionString
@@ -282,6 +292,7 @@ extension APIEndpoint.V1.Apps.WithID {
 				self.limit = limit
 				self.limitAppStoreVersionLocalizations = limitAppStoreVersionLocalizations
 				self.limitAppStoreVersionExperiments = limitAppStoreVersionExperiments
+				self.limitAppStoreVersionExperimentsV2 = limitAppStoreVersionExperimentsV2
 				self.include = include
 			}
 
@@ -305,6 +316,7 @@ extension APIEndpoint.V1.Apps.WithID {
 				encoder.encode(limit, forKey: "limit")
 				encoder.encode(limitAppStoreVersionLocalizations, forKey: "limit[appStoreVersionLocalizations]")
 				encoder.encode(limitAppStoreVersionExperiments, forKey: "limit[appStoreVersionExperiments]")
+				encoder.encode(limitAppStoreVersionExperimentsV2, forKey: "limit[appStoreVersionExperimentsV2]")
 				encoder.encode(include, forKey: "include")
 				return encoder.items
 			}

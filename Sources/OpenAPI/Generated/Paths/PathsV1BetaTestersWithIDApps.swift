@@ -15,7 +15,7 @@ extension APIEndpoint.V1.BetaTesters.WithID {
 		/// Path: `/v1/betaTesters/{id}/apps`
 		public let path: String
 
-		public func get(fieldsApps: [FieldsApps]? = nil, limit: Int? = nil) -> Request<AppStoreConnect_Swift_SDK.AppsResponse> {
+		public func get(fieldsApps: [FieldsApps]? = nil, limit: Int? = nil) -> Request<AppStoreConnect_Swift_SDK.AppsWithoutIncludesResponse> {
 			.get(path, query: makeGetQuery(fieldsApps, limit))
 		}
 
@@ -30,10 +30,12 @@ extension APIEndpoint.V1.BetaTesters.WithID {
 			case appAvailability
 			case appClips
 			case appCustomProductPages
+			case appEncryptionDeclarations
 			case appEvents
 			case appInfos
 			case appPricePoints
 			case appPriceSchedule
+			case appStoreVersionExperimentsV2
 			case appStoreVersions
 			case availableInNewTerritories
 			case availableTerritories
@@ -48,6 +50,7 @@ extension APIEndpoint.V1.BetaTesters.WithID {
 			case contentRightsDeclaration
 			case customerReviews
 			case endUserLicenseAgreement
+			case gameCenterDetail
 			case gameCenterEnabledVersions
 			case inAppPurchases
 			case inAppPurchasesV2

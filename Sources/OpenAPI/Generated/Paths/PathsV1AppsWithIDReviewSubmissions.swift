@@ -23,6 +23,7 @@ extension APIEndpoint.V1.Apps.WithID {
 			public var filterPlatform: [FilterPlatform]?
 			public var filterState: [FilterState]?
 			public var fieldsReviewSubmissionItems: [FieldsReviewSubmissionItems]?
+			public var fieldsActors: [FieldsActors]?
 			public var fieldsAppStoreVersions: [FieldsAppStoreVersions]?
 			public var fieldsApps: [FieldsApps]?
 			public var fieldsReviewSubmissions: [FieldsReviewSubmissions]?
@@ -51,10 +52,19 @@ extension APIEndpoint.V1.Apps.WithID {
 				case appEvent
 				case appStoreVersion
 				case appStoreVersionExperiment
+				case appStoreVersionExperimentV2
 				case removed
 				case resolved
 				case reviewSubmission
 				case state
+			}
+
+			public enum FieldsActors: String, Codable, CaseIterable {
+				case actorType
+				case apiKeyID = "apiKeyId"
+				case userEmail
+				case userFirstName
+				case userLastName
 			}
 
 			public enum FieldsAppStoreVersions: String, Codable, CaseIterable {
@@ -64,6 +74,7 @@ extension APIEndpoint.V1.Apps.WithID {
 				case appStoreReviewDetail
 				case appStoreState
 				case appStoreVersionExperiments
+				case appStoreVersionExperimentsV2
 				case appStoreVersionLocalizations
 				case appStoreVersionPhasedRelease
 				case appStoreVersionSubmission
@@ -83,10 +94,12 @@ extension APIEndpoint.V1.Apps.WithID {
 				case appAvailability
 				case appClips
 				case appCustomProductPages
+				case appEncryptionDeclarations
 				case appEvents
 				case appInfos
 				case appPricePoints
 				case appPriceSchedule
+				case appStoreVersionExperimentsV2
 				case appStoreVersions
 				case availableInNewTerritories
 				case availableTerritories
@@ -101,6 +114,7 @@ extension APIEndpoint.V1.Apps.WithID {
 				case contentRightsDeclaration
 				case customerReviews
 				case endUserLicenseAgreement
+				case gameCenterDetail
 				case gameCenterEnabledVersions
 				case inAppPurchases
 				case inAppPurchasesV2
@@ -128,9 +142,11 @@ extension APIEndpoint.V1.Apps.WithID {
 				case appStoreVersionForReview
 				case canceled
 				case items
+				case lastUpdatedByActor
 				case platform
 				case state
 				case submitted
+				case submittedByActor
 				case submittedDate
 			}
 
@@ -138,12 +154,15 @@ extension APIEndpoint.V1.Apps.WithID {
 				case app
 				case appStoreVersionForReview
 				case items
+				case lastUpdatedByActor
+				case submittedByActor
 			}
 
-			public init(filterPlatform: [FilterPlatform]? = nil, filterState: [FilterState]? = nil, fieldsReviewSubmissionItems: [FieldsReviewSubmissionItems]? = nil, fieldsAppStoreVersions: [FieldsAppStoreVersions]? = nil, fieldsApps: [FieldsApps]? = nil, fieldsReviewSubmissions: [FieldsReviewSubmissions]? = nil, limit: Int? = nil, limitItems: Int? = nil, include: [Include]? = nil) {
+			public init(filterPlatform: [FilterPlatform]? = nil, filterState: [FilterState]? = nil, fieldsReviewSubmissionItems: [FieldsReviewSubmissionItems]? = nil, fieldsActors: [FieldsActors]? = nil, fieldsAppStoreVersions: [FieldsAppStoreVersions]? = nil, fieldsApps: [FieldsApps]? = nil, fieldsReviewSubmissions: [FieldsReviewSubmissions]? = nil, limit: Int? = nil, limitItems: Int? = nil, include: [Include]? = nil) {
 				self.filterPlatform = filterPlatform
 				self.filterState = filterState
 				self.fieldsReviewSubmissionItems = fieldsReviewSubmissionItems
+				self.fieldsActors = fieldsActors
 				self.fieldsAppStoreVersions = fieldsAppStoreVersions
 				self.fieldsApps = fieldsApps
 				self.fieldsReviewSubmissions = fieldsReviewSubmissions
@@ -157,6 +176,7 @@ extension APIEndpoint.V1.Apps.WithID {
 				encoder.encode(filterPlatform, forKey: "filter[platform]")
 				encoder.encode(filterState, forKey: "filter[state]")
 				encoder.encode(fieldsReviewSubmissionItems, forKey: "fields[reviewSubmissionItems]")
+				encoder.encode(fieldsActors, forKey: "fields[actors]")
 				encoder.encode(fieldsAppStoreVersions, forKey: "fields[appStoreVersions]")
 				encoder.encode(fieldsApps, forKey: "fields[apps]")
 				encoder.encode(fieldsReviewSubmissions, forKey: "fields[reviewSubmissions]")
