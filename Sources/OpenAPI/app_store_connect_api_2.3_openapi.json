@@ -50091,11 +50091,11 @@
             }
           },
           "200": {
-            "description": "List of AppStoreVersionLocalizations with get",
+            "description": "List of AppStoreVersionLocalizations",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AppStoreVersionLocalizationsWithoutIncludesResponse"
+                  "$ref": "#/components/schemas/AppStoreVersionLocalizationsResponse"
                 }
               }
             }
